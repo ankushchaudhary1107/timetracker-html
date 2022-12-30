@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--CSS file for icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link href="css/sidebars.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- navbar -->
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-info ">
+        <a class="navbar-brand ms-2" href="#">Time Tracker</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="dashboard.html">Home <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <!-- End Navbar -->
+    <main class="d-flex flex-nowrap">
+
+        <div class="d-flex flex-column flex-shrink-0 p-3 pt-5 bg-light d-md-block d-none position-fixed h-100 sidebar"
+            style="width:240px;">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <span class="fs-4 d-none">Sidebar</span>
+            </a>
+            <ul class="nav nav-pills flex-column mb-auto mt-2">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link link-dark m-1"><i
+                            class="fa-solid fa-house me-2"></i>Home</a>
+                </li>
+                <li>
+                    <a href="Register Client.html" class="nav-link link-dark m-1"><i
+                            class="fa-solid fa-registered me-2"></i>Register Client</a>
+                </li>
+                <li>
+                    <a href="Register Department.html" class="nav-link link-dark m-1"><i
+                            class="fa-solid fa-plus me-2"></i>Add Department</a>
+                </li>
+                <li>
+                    <a href="get departments.html" class="nav-link link-dark m-1"><i
+                            class="fa-sharp fa-solid fa-list me-2"></i>All Departments</a>
+                </li>
+                <li>
+                    <a href="Register User.html" class="nav-link link-dark m-1"><i
+                            class="fa-solid fa-user-plus me-2"></i>Register User</a>
+                </li>
+                <li>
+                    <a href="Users List.html" class="nav-link link-dark m-1"><i class="fa-solid fa-users me-2"></i>All
+                        Users</a>
+                </li>
+                <li>
+                    <a href="index.html" class="nav-link link-dark m-1"><i
+                            class="fa-solid fa-person-through-window me-2"></i>Logout</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="d-flex flex-column flex-shrink-0 bg-light d-md-none d-block sidebar pt-5" style="width: 4.5rem;">
+            <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+                <li class="nav-item mt-3">
+                    <a href="#" class="nav-link py-3 rounded-0 link-dark" onclick="toggleSidebar()"><i
+                            class="fa fa-bars me-2"></i></a>
+                </li>
+                <li>
+                    <a href="dashboard.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+                        data-placement="bottom" title="Dashboard"><i class="fa-solid fa-house me-2"></i></a>
+                </li>
+                <li>
+                    <a href="Register Client.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+                        data-placement="bottom" title="Register Client"><i class="fa-solid fa-registered me-2"></i></a>
+                </li>
+                <li>
+                    <a href="Register Department.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+                        data-placement="bottom" title="Add Department"><i class="fa-solid fa-plus me-2"></i></a>
+                </li>
+                <li>
+                    <a href="get departments.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+                        data-placement="bottom" title="All Departments"><i
+                            class="fa-sharp fa-solid fa-list me-2"></i></a>
+                </li>
+                <li>
+                    <a href="Register User.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+                        data-placement="bottom" title="Register User"><i class="fa-solid fa-user-plus me-2"></i></a>
+                </li>
+                <li>
+                    <a href="Users List.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+                        data-placement="bottom" title="All Users"><i class="fa-solid fa-users me-2"></i></a>
+                </li>
+                <li>
+                    <a href="index.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+                        data-placement="bottom" title="Logout"><i
+                            class="fa-solid fa-person-through-window me-2"></i></a>
+                </li>
+            </ul>
+        </div>
+        <!--Main Content-->
+        <div class="content w-100 pt-5 overflow-auto">
+            <div class="grey-bg container-fluid mt-4">
+                <div class="row">
+                    <div class="col-md-6 col-sm-4 col-12">
+                        <h5 class="ms-2">Users</h5>
+                    </div>
+                    <div class="col-md-6 col-sm-8 col-12">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="input-group rounded search-container">
+                                    <input type="search" class="form-control form-control-sm rounded"
+                                        placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                    <span class="input-group-text border-0" id="search-addon">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <select class="form-select form-select-sm" aria-label=".form-select-lg example">
+                                    <option selected>Sort By</option>
+                                    <option value="1">Name</option>
+                                    <option value="2">Email</option>
+                                    <option value="3">Department</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Table Started-->
+                <div class="table-responsive" style="line-height: 2.5">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Department</th>
+                                <th scope="col" width="100px">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><a href="#" class="text-decoration-none fw-bold" title="All Details"
+                                        data-toggle="tooltip" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">User
+                                        1</a></td>
+                                <td>test1231@gmail.com</td>
+                                <td>Java</td>
+                                <td>
+                                    <a href="Update User.html" class="text-info" title="Edit" data-toggle="tooltip">
+                                        <i class="fa-solid fa-lg fa-pen-to-square"></i></a>
+                                    <a href="User Sessions.html" class="text-secondary" title="Sessions"
+                                        data-toggle="tooltip"><i
+                                            class="fa-sharp fa-lg fa-solid fa-database ms-2 ms-sm-4"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a href="#" class="text-decoration-none fw-bold" title="All Details"
+                                        data-toggle="tooltip" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">User
+                                        2</a></td>
+                                <td>test1232@gmail.com</td>
+                                <td>PHP</td>
+                                <td>
+                                    <a href="Update User.html" class="text-info" title="Edit" data-toggle="tooltip">
+                                        <i class="fa-solid fa-lg fa-pen-to-square"></i></a>
+                                    <a href="User Sessions.html" class="text-secondary" title="Sessions"
+                                        data-toggle="tooltip"><i
+                                            class="fa-sharp fa-lg fa-solid fa-database ms-2 ms-sm-4"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td><a href="#" class="text-decoration-none fw-bold" title="All Details"
+                                        data-toggle="tooltip" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">User
+                                        3</a></td>
+                                <td>test1232@gmail.com</td>
+                                <td>PHP</td>
+                                <td>
+                                    <a href="Update User.html" class="text-info" title="Edit" data-toggle="tooltip">
+                                        <i class="fa-solid fa-lg fa-pen-to-square"></i></a>
+                                    <a href="User Sessions.html" class="text-secondary" title="Sessions"
+                                        data-toggle="tooltip"><i
+                                            class="fa-sharp fa-lg fa-solid fa-database ms-2 ms-sm-4"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td><a href="#" class="text-decoration-none fw-bold" title="All Details"
+                                        data-toggle="tooltip" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">User
+                                        4</a></td>
+                                <td>test1232@gmail.com</td>
+                                <td>PHP</td>
+                                <td>
+                                    <a href="Update User.html" class="text-info" title="Edit" data-toggle="tooltip">
+                                        <i class="fa-solid fa-lg fa-pen-to-square"></i></a>
+                                    <a href="User Sessions.html" class="text-secondary" title="Sessions"
+                                        data-toggle="tooltip"><i
+                                            class="fa-sharp fa-lg fa-solid fa-database ms-2 ms-sm-4"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#" class="text-decoration-none fw-bold" title="All Details"
+                                        data-toggle="tooltip" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">User
+                                        5</a></td>
+                                <td>test1232@gmail.com</td>
+                                <td>PHP</td>
+                                <td>
+                                    <a href="Update User.html" class="text-info" title="Edit" data-toggle="tooltip">
+                                        <i class="fa-solid fa-lg fa-pen-to-square"></i></a>
+                                    <a href="User Sessions.html" class="text-secondary" title="Sessions"
+                                        data-toggle="tooltip"><i
+                                            class="fa-sharp fa-lg fa-solid fa-database ms-2 ms-sm-4"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>6</td>
+                                <td><a href="#" class="text-decoration-none fw-bold" title="All Details"
+                                        data-toggle="tooltip" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">User
+                                        6</a></td>
+                                <td>test1232@gmail.com</td>
+                                <td>PHP</td>
+                                <td>
+                                    <a href="Update User.html" class="text-info" title="Edit" data-toggle="tooltip">
+                                        <i class="fa-solid fa-lg fa-pen-to-square"></i></a>
+                                    <a href="User Sessions.html" class="text-secondary" title="Sessions"
+                                        data-toggle="tooltip"><i
+                                            class="fa-sharp fa-lg fa-solid fa-database ms-2 ms-sm-4"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>7</td>
+                                <td><a href="#" class="text-decoration-none fw-bold" title="All Details"
+                                        data-toggle="tooltip" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">User
+                                        7</a></td>
+                                <td>test1232@gmail.com</td>
+                                <td>PHP</td>
+                                <td>
+                                    <a href="Update User.html" class="text-info" title="Edit" data-toggle="tooltip">
+                                        <i class="fa-solid fa-lg fa-pen-to-square"></i></a>
+                                    <a href="User Sessions.html" class="text-secondary" title="Sessions"
+                                        data-toggle="tooltip"><i
+                                            class="fa-sharp fa-solid fa-lg fa-database ms-2 ms-sm-4"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>8</td>
+                                <td><a href="#" class="text-decoration-none fw-bold" title="All Details"
+                                        data-toggle="tooltip" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">User
+                                        8</a></td>
+                                <td>test1232@gmail.com</td>
+                                <td>PHP</td>
+                                <td>
+                                    <a href="Update User.html" class="text-info" title="Edit" data-toggle="tooltip">
+                                        <i class="fa-solid fa-lg fa-pen-to-square"></i></a>
+                                    <a href="User Sessions.html" class="text-secondary" title="Sessions"
+                                        data-toggle="tooltip"><i
+                                            class="fa-sharp fa-solid fa-lg fa-database ms-2 ms-sm-4"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>9</td>
+                                <td><a href="#" class="text-decoration-none fw-bold" title="All Details"
+                                        data-toggle="tooltip" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">User
+                                        9</a></td>
+                                <td>test1233@gmail.com</td>
+                                <td>Designing</td>
+                                <td>
+                                    <a href="Update User.html" class="text-info" title="Edit" data-toggle="tooltip">
+                                        <i class="fa-solid fa-lg fa-pen-to-square"></i></a>
+                                    <a href="User Sessions.html" class="text-secondary" title="Sessions"
+                                        data-toggle="tooltip"><i
+                                            class="fa-sharp fa-lg fa-solid fa-database ms-2 ms-sm-4"></i></a>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>10</td>
+                                <td><a href="#" class="text-decoration-none fw-bold" title="All Details"
+                                        data-toggle="tooltip" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">User
+                                        10</a></td>
+                                <td>test1234@gmail.com</td>
+                                <td>Reviewer</td>
+                                <td>
+                                    <a href="Update User.html" class="text-info" title="Edit" data-toggle="tooltip">
+                                        <i class="fa-solid fa-lg fa-pen-to-square"></i></a>
+                                    <a href="User Sessions.html" class="text-secondary" title="Sessions"
+                                        data-toggle="tooltip"><i
+                                            class="fa-sharp fa-solid fa-lg fa-database ms-2 ms-sm-4"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><a href="#" class="text-decoration-none fw-bold" title="All Details"
+                                        data-toggle="tooltip" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">User
+                                        11</a></td>
+                                <td>test1235@gmail.com</td>
+                                <td>Tester</td>
+                                <td>
+                                    <a href="Update User.html" class="text-info" title="Edit" data-toggle="tooltip">
+                                        <i class="fa-solid fa-lg fa-pen-to-square"></i></a>
+                                    <a href="User Sessions.html" class="text-secondary" title="Sessions"
+                                        data-toggle="tooltip"><i
+                                            class="fa-sharp fa-lg fa-solid fa-database ms-2 ms-sm-4"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!--Pagination-->
+            <div class="mt-3">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end me-md-4 pagination-sm">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- End Content -->
+    </main>
+    <!-- Modal  Or PopUp-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-lg modal-md h-100">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">User Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-light rounded">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-12 col-12 p-3 ">
+                            <div class="row gx-0 h-100">
+                                <div
+                                    class="col-sm-4 bg-info rounded-left d-flex text-center h-100 justify-content-center align-items-center">
+                                    <div class="card-block text-white">
+                                        <i class="fas fa-user-tie fa-7x"></i>
+                                        <h2 class="fw-bold mt-4">Ram Kumar</h2>
+                                        <p class="mb-4">Web Designer</p>
+                                        <a href="#" class="" title="Edit" data-toggle="tooltip"><i
+                                                class="far fa-edit fa-2x mb-4"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8 bg-white rounded-right">
+                                    <h5 class="mt-3 text-center fw-bold">Profile</h5>
+                                    <hr class="badge-primary mt-0">
+                                    <div class="row text-center overflow-auto">
+                                        <div class="col-lg-4 col-6 text-center">
+                                            <p class="text-muted mb-2">Username:</p>
+                                            <h6>Test1234</h6>
+                                        </div>
+                                        <div class="col-lg-4 col-6 text-center">
+                                            <p class="text-muted mb-2">Email:</p>
+                                            <h6>test1234@gmail.com</h6>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-6 text-center">
+                                            <p class="text-muted mb-2">Department:</p>
+                                            <h6>Java</h6>
+                                        </div>
+                                    </div>
+
+                                    <h6 class="mt-4 ms-3 fw-bold">Roles</h6>
+                                    <hr class="badge-primary mt-0">
+                                    <div class="row">
+                                        <div class="col-sm-6 text-center">
+                                            <p class="text-muted mb-2">Supervisors:</p>
+                                            <h6>user1, User2</h6>
+                                        </div>
+                                        <div class="col-sm-6 text-center">
+                                            <p class="text-muted mb-2">Role:</p>
+                                            <h6>User</h6>
+                                        </div>
+                                    </div>
+
+                                    <h6 class="mt-4 ms-3 fw-bold">Other Details</h6>
+                                    <hr class="badge-primary mt-0">
+                                    <div class="row">
+                                        <div class="col-sm-6 text-center">
+                                            <p class="text-muted mb-2">Created On:</p>
+                                            <h6>16/08/2022</h6>
+                                        </div>
+                                        <div class="col-sm-6 text-center">
+                                            <p class="text-muted mb-2">Last Updated on:</p>
+                                            <h6>19/11/2022</h6>
+                                        </div>
+                                    </div>
+
+                                    <hr class="badge-primary mt-3">
+                                    <div class="row text-end">
+                                        <a href="#" class="delete" title="Delete" data-toggle="tooltip"
+                                            onclick="deleteSelected()"><i
+                                                class="fa-solid fa-trash ms-lg-4 ms-md-4 ms-sm-2 ms-1 text-danger"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/CustomJs.js"></script>
+    <!--SweetAlert CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+</body>
+
+</html>

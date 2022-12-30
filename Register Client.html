@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Client</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!--CSS file for icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <link href="css/sidebars.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- navbar -->
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-info ">
+    <a class="navbar-brand ms-2" href="#">Time Tracker</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="dashboard.html">Home <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <main class="d-flex flex-nowrap">
+
+    <div class="d-flex flex-column flex-shrink-0 p-3 pt-5 bg-light d-md-block d-none position-fixed h-100 sidebar"
+      style="width:240px;">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <span class="fs-4 d-none">Sidebar</span>
+      </a>
+      <ul class="nav nav-pills flex-column mb-auto mt-2">
+        <li class="nav-item">
+          <a href="dashboard.html" class="nav-link link-dark m-1"><i class="fa-solid fa-house me-2"></i>Home</a>
+        </li>
+        <li>
+          <a href="Register Client.html" class="nav-link link-dark m-1"><i
+              class="fa-solid fa-registered me-2"></i>Register Client</a>
+        </li>
+        <li>
+          <a href="Register Department.html" class="nav-link link-dark m-1"><i class="fa-solid fa-plus me-2"></i>Add
+            Department</a>
+        </li>
+        <li>
+          <a href="get departments.html" class="nav-link link-dark m-1"><i
+              class="fa-sharp fa-solid fa-list me-2"></i>All Departments</a>
+        </li>
+        <li>
+          <a href="Register User.html" class="nav-link link-dark m-1"><i class="fa-solid fa-user-plus me-2"></i>Register
+            User</a>
+        </li>
+        <li>
+          <a href="Users List.html" class="nav-link link-dark m-1"><i class="fa-solid fa-users me-2"></i>All Users</a>
+        </li>
+        <li>
+          <a href="index.html" class="nav-link link-dark m-1"><i
+              class="fa-solid fa-person-through-window me-2"></i>Logout</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="d-flex flex-column flex-shrink-0 bg-light d-md-none d-block sidebar pt-5" style="width: 4.5rem;">
+      <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+        <li class="nav-item mt-3">
+          <a href="#" class="nav-link py-3 rounded-0 link-dark" onclick="toggleSidebar()"><i
+              class="fa fa-bars me-2"></i></a>
+        </li>
+        <li>
+          <a href="dashboard.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+            data-placement="bottom" title="Dashboard"><i class="fa-solid fa-house me-2"></i></a>
+        </li>
+        <li>
+          <a href="Register Client.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+            data-placement="bottom" title="Register Client"><i class="fa-solid fa-registered me-2"></i></a>
+        </li>
+        <li>
+          <a href="Register Department.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+            data-placement="bottom" title="Add Department"><i class="fa-solid fa-plus me-2"></i></a>
+        </li>
+        <li>
+          <a href="get departments.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+            data-placement="bottom" title="All Departments"><i class="fa-sharp fa-solid fa-list me-2"></i></a>
+        </li>
+        <li>
+          <a href="Register User.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+            data-placement="bottom" title="Register User"><i class="fa-solid fa-user-plus me-2"></i></a>
+        </li>
+        <li>
+          <a href="Users List.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+            data-placement="bottom" title="All Users"><i class="fa-solid fa-users me-2"></i></a>
+        </li>
+        <li>
+          <a href="index.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip" data-placement="bottom"
+            title="Logout"><i class="fa-solid fa-person-through-window me-2"></i></a>
+        </li>
+      </ul>
+    </div>
+    <!--Main Content-->
+    <div class="content w-100 pt-5 overflow-auto">
+      <div class="grey-bg container-fluid mt-4">
+        <section>
+          <div class="container align-items-center">
+            <div class="row d-flex justify-content-center align-items-center align-items-center"
+              style="min-height: 85vh">
+              <div class="col col-xl-5 col-lg-6 col-md-8 col-sm-8 col-12">
+                <div class="card shadow-lg rounded bg-light" style="border-radius: 1rem;">
+                  <div class="row g-0">
+                    <div class="d-flex align-items-center">
+                      <div class="card-body p-4 p-lg-5 text-black justify-content-center">
+
+                        <form role="form" action="#">
+                          <h2 class="fw-normal mb-3 pb-3 text-center" style="letter-spacing: 1px;">Register Client</h2>
+
+                          <div class="form-outline mb-4">
+                            <label class="form-label" for="form2Example17">Client name</label>
+                            <input type="text" id="form2Example17" class="form-control" />
+
+                          </div>
+                          <div class="pt-1 mb-4 text-center">
+                            <button class="btn btn-success btn-block" type="submit">Register</button>
+                          </div>
+                        </form>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/CustomJs.js"></script>
+</body>
+
+</html>

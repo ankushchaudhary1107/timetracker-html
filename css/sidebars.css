@@ -1,0 +1,58 @@
+/*ccs for register user tabs*/
+input.invalid {
+  background-color: #dab3b3;
+}
+.tab {
+  display: none;
+}
+
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+.step.finish {
+  background-color: #04AA6D;
+}
+/* End Here*/
+
+main {
+  height: 100vh;
+  height: -webkit-fill-available;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.sidebar a:hover{
+  background-color: lightgrey;
+}
+.height-r a:hover{
+  background-color: lightgrey;
+}
+
+.height-r{
+  height: 85vh;
+}
+@media(min-width:768px){
+  .content{
+    margin-left: 250px !important;
+  }
+
+}
+@media(min-width:576px)and (max-width:992px){
+  .modal-md{
+    min-width: 80%;
+    max-width: 85%;
+  }
+}

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register User</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--CSS file for icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link href="css/sidebars.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- navbar -->
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-info ">
+        <a class="navbar-brand ms-2" href="#">Time Tracker</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="dashboard.html">Home <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <!-- End Navbar -->
+    <main class="d-flex flex-nowrap">
+
+        <div class="d-flex flex-column flex-shrink-0 p-3 pt-5 bg-light d-md-block d-none position-fixed h-100 sidebar"
+            style="width:240px;">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <span class="fs-4 d-none">Sidebar</span>
+            </a>
+            <ul class="nav nav-pills flex-column mb-auto mt-2">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link link-dark m-1"><i
+                            class="fa-solid fa-house me-2"></i>Home</a>
+                </li>
+                <li>
+                    <a href="Register Client.html" class="nav-link link-dark m-1"><i
+                            class="fa-solid fa-registered me-2"></i>Register Client</a>
+                </li>
+                <li>
+                    <a href="Register Department.html" class="nav-link link-dark m-1"><i
+                            class="fa-solid fa-plus me-2"></i>Add Department</a>
+                </li>
+                <li>
+                    <a href="get departments.html" class="nav-link link-dark m-1"><i
+                            class="fa-sharp fa-solid fa-list me-2"></i>All Departments</a>
+                </li>
+                <li>
+                    <a href="Register User.html" class="nav-link link-dark m-1"><i
+                            class="fa-solid fa-user-plus me-2"></i>Register User</a>
+                </li>
+                <li>
+                    <a href="Users List.html" class="nav-link link-dark m-1"><i class="fa-solid fa-users me-2"></i>All
+                        Users</a>
+                </li>
+                <li>
+                    <a href="index.html" class="nav-link link-dark m-1"><i
+                            class="fa-solid fa-person-through-window me-2"></i>Logout</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="d-flex flex-column flex-shrink-0 bg-light d-md-none d-block sidebar pt-5" style="width: 4.5rem;">
+            <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+                <li class="nav-item mt-3">
+                    <a href="#" class="nav-link py-3 rounded-0 link-dark" onclick="toggleSidebar()"><i
+                            class="fa fa-bars me-2"></i></a>
+                </li>
+                <li>
+                    <a href="dashboard.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+                        data-placement="bottom" title="Dashboard"><i class="fa-solid fa-house me-2"></i></a>
+                </li>
+                <li>
+                    <a href="Register Client.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+                        data-placement="bottom" title="Register Client"><i class="fa-solid fa-registered me-2"></i></a>
+                </li>
+                <li>
+                    <a href="Register Department.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+                        data-placement="bottom" title="Add Department"><i class="fa-solid fa-plus me-2"></i></a>
+                </li>
+                <li>
+                    <a href="get departments.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+                        data-placement="bottom" title="All Departments"><i
+                            class="fa-sharp fa-solid fa-list me-2"></i></a>
+                </li>
+                <li>
+                    <a href="Register User.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+                        data-placement="bottom" title="Register User"><i class="fa-solid fa-user-plus me-2"></i></a>
+                </li>
+                <li>
+                    <a href="Users List.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+                        data-placement="bottom" title="All Users"><i class="fa-solid fa-users me-2"></i></a>
+                </li>
+                <li>
+                    <a href="index.html" class="nav-link py-3 rounded-0 link-dark" data-toggle="tooltip"
+                        data-placement="bottom" title="Logout"><i
+                            class="fa-solid fa-person-through-window me-2"></i></a>
+                </li>
+            </ul>
+        </div>
+        <!--Main Content-->
+        <div class="content w-100 pt-5 overflow-auto">
+            <div class="grey-bg container-fluid mt-4">
+                <section>
+                    <div class="container align-items-center">
+                        <div class="row d-flex justify-content-center align-items-center align-items-center"
+                            style="min-height: 85vh">
+                            <div class="col col-xl-7 col-lg-8 col-md-9 col-sm-10 col-12">
+                                <div class="card shadow rounded bg-light" style="border-radius: 1rem;">
+                                    <div class="row g-0">
+                                        <div class="d-flex align-items-center">
+                                            <div class="card-body p-4 p-lg-5 text-black justify-content-center">
+
+                                                <form role="form" action="#">
+                                                    <h2 class="fw-normal mb-3 pb-3 text-center"
+                                                        style="letter-spacing: 1px;">Register User</h2>
+                                                    <!-- One "tab" for each step in the form: -->
+                                                    <div class="tab">
+                                                        <div class="form-outline mb-4">
+                                                            <label class="form-label" for="form2Example17">Name</label>
+                                                            <input type="text" id="name" name="name"
+                                                                class="form-control" />
+                                                        </div>
+
+                                                        <div class="form-outline mb-4">
+                                                            <label class="form-label" for="form2Example17">Set
+                                                                Username</label>
+                                                            <input type="text" id="username" name="username"
+                                                                class="form-control" />
+                                                        </div>
+
+                                                        <div class="form-outline mb-4">
+                                                            <label class="form-label" for="form2Example17">Email</label>
+                                                            <input type="email" id="email" name="email"
+                                                                class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab">
+                                                        <div class="form-outline mb-4">
+                                                            <label class="form-label" for="form2Example17">Select
+                                                                Department</label>
+                                                            <select class="form-control" id="department"
+                                                                name="department">
+                                                                <option val="">Please select</option>
+                                                                <option val="1">Option 1</option>
+                                                                <option val="2">Option 2</option>
+                                                                <option val="3">Option 3</option>
+                                                                <option val="4">Option 4</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="form-outline mb-4">
+                                                            <label class="form-label"
+                                                                for="form2Example17">Designation</label>
+                                                            <input type="text" id="designation" name="designation"
+                                                                class="form-control" />
+                                                        </div>
+
+                                                        <div class="form-outline mb-4">
+                                                            <label class="form-label"
+                                                                for="form2Example17">Supervisor</label>
+                                                            <div class="row g-1 mb-2">
+                                                                <div class="col-xl-10 col-lg-9 col-sm-8 col-8">
+                                                                    <input type="text" placeholder="Supervisor ID"
+                                                                        id="superior" class="form-control"
+                                                                        name="superior">
+                                                                </div>
+                                                                <div class="col-xl-2 col-lg-3 col-sm-4 col-4">
+                                                                    <button type="button" id="add"
+                                                                        class="btn btn-success w-100"
+                                                                        onclick="addMore()">Add</button>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="row g-1 mb-4">
+                                                                <div class=" col-xl-10 col-lg-9 col-sm-8 col-8">
+                                                                    <textview class="form-control" id="textbox"
+                                                                        rows="3">
+                                                                    </textview>
+                                                                </div>
+                                                                <div class="col-xl-2 col-lg-3 col-sm-4 col-4">
+                                                                    <button type="button" id="remove"
+                                                                        class="btn btn-info w-100"
+                                                                        style="font-size:smaller;"
+                                                                        onclick="removeItems()">Remove</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="tab">
+                                                        <div class="form-outline mb-4">
+                                                            <label class="form-label"
+                                                                for="form2Example17">Password</label>
+                                                            <input type="password" id="password" name="password"
+                                                                class="form-control" />
+                                                        </div>
+
+                                                        <div class="form-outline mb-4">
+                                                            <label class="form-label" for="form2Example17">Confirm
+                                                                Password</label>
+                                                            <input type="text" id="confirmPassword"
+                                                                name="confirmPassword" class="form-control" />
+                                                        </div>
+
+                                                        <div class="form-outline mb-4">
+                                                            <label class="form-label" for="form2Example17">Roles</label>
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <div class="form-check roles">
+                                                                        <input class="form-check-input me-2"
+                                                                            type="checkbox" value="" id="user" checked
+                                                                            name="user">
+                                                                        <label class="form-check-label"
+                                                                            for="flexCheckDefault">
+                                                                            User
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <div class="form-check roles">
+                                                                        <input class="form-check-input me-2"
+                                                                            type="checkbox" value="" id="admin"
+                                                                            name="admin">
+                                                                        <label class="form-check-label"
+                                                                            for="flexCheckChecked">
+                                                                            Admin
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                    <div class="pt-1 mb-4 text-center">
+                                                        <div style="overflow:auto;" class="mt-sm-3 mt-2">
+                                                            <div style="float:right;">
+                                                                <button type="button" id="prevBtn"
+                                                                    class="btn btn-dark me-2"
+                                                                    onclick="nextPrev(-1)">Previous</button>
+                                                                <button id="nextBtn" type="button"
+                                                                    class="btn btn-success"
+                                                                    onclick="nextPrev(1)">Next</button>
+                                                                <button id="submit" type="submit"
+                                                                    class="btn btn-success"
+                                                                    style="display: none;">Submit</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Circles which indicates the steps of the form: -->
+                                                    <div style="text-align:center;margin-top:20px;">
+                                                        <span class="step form-range"></span>
+                                                        <span class="step"></span>
+                                                        <span class="step"></span>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- End Content -->
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/CustomJs.js"></script>
+</body>
+
+</html>
